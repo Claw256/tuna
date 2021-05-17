@@ -2,9 +2,11 @@ name: nightly
 on:
   pull_request:
     paths-ignore:
+    
       - '**.ini'
   push:
     paths-ignore:
+    
       - '**.ini'
     branches:
     - master
