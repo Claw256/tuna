@@ -149,7 +149,7 @@ jobs:
     name: 'Linux 64bit'
     runs-on: ubuntu-latest
     env:
-      obs-studio-version: 26.0.1
+      obs-studio-version: 26.1.1
       project-name: tuna
       project-git: tuna
       maintainer: uni@vrsal.de
@@ -346,7 +346,7 @@ jobs:
       - name: 'Configure ${{ env.project-git }}  64-bit'
         working-directory: ${{ github.workspace }}\${{ env.project-git }}
         run: |
-          mkdir .\build64
+          New-Item -ItemType Directory -Force -Path .\build64
           cd .\build64
           cmake -G "${{ env.CMAKE_GENERATOR }}" -A x64 -DCMAKE_SYSTEM_VERSION="${{ env.CMAKE_SYSTEM_VERSION }}" `
             -DQTDIR="${{ github.workspace }}\cmbuild\QT\${{ env.QT_VERSION }}\msvc2017_64" `
@@ -361,7 +361,7 @@ jobs:
       - name: 'Configure ${{ env.project-git }} 32-bit'
         working-directory: ${{ github.workspace }}/${{ env.project-git }}
         run: |
-          mkdir .\build32
+          New-Item -ItemType Directory -Force -Path .\build32
           cd .\build32
           cmake -G "${{ env.CMAKE_GENERATOR }}" -A Win32 -DCMAKE_SYSTEM_VERSION="${{ env.CMAKE_SYSTEM_VERSION }}" `
           -DQTDIR="${{ github.workspace }}\cmbuild\QT\${{ env.QT_VERSION }}\msvc2017" `
